@@ -1,8 +1,14 @@
 # file: test.thor
-class Test < Thor
+class Render < Thor
   desc "example", "an example task"
   def example
     puts "I'm a thor task!"
   end
-  Test.start
+  desc "render", "an example task"
+  def render
+    h = { 'one' => 1, 'array' => [ true, false ] }
+    json = Oj.dump(h)
+    puts json
+  end
+  Render.start
 end

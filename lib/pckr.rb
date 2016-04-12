@@ -2,6 +2,7 @@ require "rubygems"
 require "bundler"
 require "thor"
 require 'oj'
+require 'json'
 Bundler.setup
 
 class Pckr
