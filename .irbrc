@@ -1,0 +1,1 @@
+require Dir.pwd + "/lib/pckr.rb"
