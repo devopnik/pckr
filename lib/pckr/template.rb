@@ -1,18 +1,9 @@
-require 'jbuilder'
-require 'multi_json'
-MultiJson.use :yajl
 
-Jbuilder.encode do |json|
-  json.content format_content(@message.content)
-  json.(@message, :created_at, :updated_at)
-
-  json.author do |json|
-    json.name @message.creator.name.familiar
-    json.email_address @message.creator.email_address_with_name
-    json.url url_for(@message.creator, format: :json)
-  end
-
-  if current_user.admin?
-    json.visitors calculate_visitors(@message)
-  end
+# file: test.thor
+class Render < Thor
+  desc "render", "an example task"
+  def render
+    h = { 'one' => 1, 'array' => [ true, false ] }
+    json = Oj.dump(h)  end
+  Render.start
 end
